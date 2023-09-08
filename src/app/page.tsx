@@ -1,9 +1,9 @@
-import Login from "../../components/Login"
+import Login from "../components/Login"
 
 export default function Landing() {
   return (
     <div>
-      <h1 className='text-blue'>Landing Page</h1>
+      <h1 className='text-red-600'>Landing Page</h1>
       <Login />
     </div>
   )

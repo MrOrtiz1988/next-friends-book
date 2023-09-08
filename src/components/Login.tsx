@@ -1,7 +1,6 @@
 "use client"
 import React, { useState } from 'react';
 
-
 export default function Login() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState('');
@@ -14,6 +13,7 @@ export default function Login() {
                     placeholder="email"
                     value={email}
                     onChange={e => setEmail(e.target.value)}
+                    className='text-green-500'
                 />
                 <input
                     type="password"
