@@ -2,6 +2,7 @@ import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import Menu from '../components/Menu'
+import { ReduxProvider } from '@/redux/provider'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -23,7 +24,7 @@ export default function RootLayout({
         <div>
           <Menu />
         </div>
-        {children}
+        <ReduxProvider> {children} </ReduxProvider>
       </body>
     </html>
   )
