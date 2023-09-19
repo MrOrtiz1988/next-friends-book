@@ -1,19 +1,20 @@
 "use client";
 import { useState } from 'react';
-import { logIn, logOut } from '@/redux/features/auth-slice';
+import { logIn } from '@/redux/features/auth-slice';
 import { useDispatch } from 'react-redux';
 import { AppDispatch } from '@/redux/store';
 import { useRouter } from 'next/navigation';
 
 export default function Login() {
-    const router = useRouter()
+    const router = useRouter();
     const [username, setUsername] = useState('');
     // const [password, setPassword] = useState('');
     const dispatch = useDispatch<AppDispatch>();
 
-    const onClickLogIn = () => {
+    const onClickLogIn = (e: { preventDefault: () => void; }) => {
+        e.preventDefault();
         dispatch(logIn(username));
-        router.push('/home', { scroll: false })
+        router.push('/home');
     };
 
     const onClickLogOut = () => {};
