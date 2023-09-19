@@ -1,27 +1,43 @@
-"use client"
-import React, { useState } from 'react';
+"use client";
+import { useState } from 'react';
+import { logIn, logOut } from '@/redux/features/auth-slice';
+import { useDispatch } from 'react-redux';
+import { AppDispatch } from '@/redux/store';
+import { useRouter } from 'next/navigation';
 
 export default function Login() {
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState('');
+    const router = useRouter()
+    const [username, setUsername] = useState('');
+    // const [password, setPassword] = useState('');
+    const dispatch = useDispatch<AppDispatch>();
+
+    const onClickLogIn = () => {
+        dispatch(logIn(username));
+        router.push('/home', { scroll: false })
+    };
+
+    const onClickLogOut = () => {};
+
+    const onClickToggle = () => {};
 
     return (
         <div>
             <form>
                 <input
-                    type="email"
-                    placeholder="email"
-                    value={email}
-                    onChange={e => setEmail(e.target.value)}
+                    type="text"
+                    placeholder="Username"
+                    value={username}
+                    onChange={e => setUsername(e.target.value)}
                     className='text-green-500'
                 />
-                <input
+                {/* <input
                     type="password"
                     placeholder="password"
                     value={password}
                     onChange={e => setPassword(e.target.value)}
-                />
-                <button type="submit">Login</button>
+                    className='text-green-500'
+                /> */}
+                <button onClick={onClickLogIn} type="submit">Login</button>
             </form>
         </div>
     )
