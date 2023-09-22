@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux';
 import { AppDispatch } from '@/redux/store';
 import { useRouter } from 'next/navigation';
 
-export default function Login() {
+export default function Register() {
     const router = useRouter();
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
@@ -19,7 +19,7 @@ export default function Login() {
 
     return (
         <div>
-            <h1>Log In Here!</h1>
+            <h1>Register Here!</h1>
             <form>
                 <input
                     type="text"
